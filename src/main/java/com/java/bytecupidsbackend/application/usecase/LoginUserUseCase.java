@@ -2,6 +2,8 @@ package com.java.bytecupidsbackend.application.usecase;
 
 import com.java.bytecupidsbackend.domain.model.User;
 import com.java.bytecupidsbackend.domain.repository.UserRepository;
+import com.java.bytecupidsbackend.infrastructure.persistence.adapter.UserRepositoryAdapter;
+import com.java.bytecupidsbackend.infrastructure.persistence.entity.UserEntity;
 import com.java.bytecupidsbackend.infrastructure.security.JwtProvider;
 import com.java.bytecupidsbackend.presentation.dto.LoginResponse;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,7 +26,7 @@ public class LoginUserUseCase {
         LoginResponse loginResponse = new LoginResponse();
         loginResponse.setTimestamp(String.valueOf(System.currentTimeMillis()));
 
-        if (!userRepository.findByEmail(email).isPresent()) {
+        if (userRepository.findByEmail(email).isEmpty()) {
             loginResponse.setMessage("User not found");
             loginResponse.setStatus("error");
             loginResponse.setCode(400);

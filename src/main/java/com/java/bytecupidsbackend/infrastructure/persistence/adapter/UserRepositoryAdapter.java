@@ -19,7 +19,7 @@ public class UserRepositoryAdapter implements UserRepository {
     @Override
     public Optional<User> findByEmail(String email) {
         return jpaRepo.findByEmail(email)
-                .map(entity -> new User(entity.getUsername(), entity.getEmail(), entity.getPassword()));
+                .map(entity -> new User(entity.getId() ,entity.getUsername(), entity.getEmail(), entity.getPassword()));
     }
 
     @Override
