@@ -1,6 +1,7 @@
 package com.java.bytecupidsbackend.presentation.dto;
 
 import com.java.bytecupidsbackend.domain.model.User;
+import com.java.bytecupidsbackend.infrastructure.persistence.entity.UserEntity;
 
 public class LoginResponse {
     private String accessToken;

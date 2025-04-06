@@ -17,7 +17,7 @@ import java.security.Timestamp;
 import java.util.Date;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/bytecupids/auth")
 public class AuthController {
 
     private final RegisterUserUseCase registerUseCase;

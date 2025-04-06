@@ -34,6 +34,7 @@ public class RegisterUserUseCase {
         String hashed = passwordEncoder.encode(password);
         User user = new User(username, email, hashed);
         userRepository.save(user);
+        user = userRepository.findByEmail(email).get();
         registerResponse.setMessage("Success");
         registerResponse.setStatus("OK");
         registerResponse.setCode(200);
