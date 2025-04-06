@@ -12,7 +12,9 @@ public class User {
         this.password = password;
     }
 
-    // Getters
+    public User(String username, String email) {
+        this(username, email, "");
+    }
 
     public String getUsername() {
         return username;

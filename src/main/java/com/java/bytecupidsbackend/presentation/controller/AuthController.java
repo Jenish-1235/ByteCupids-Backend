@@ -3,14 +3,18 @@ package com.java.bytecupidsbackend.presentation.controller;
 import com.java.bytecupidsbackend.application.usecase.LoginUserUseCase;
 import com.java.bytecupidsbackend.application.usecase.RegisterUserUseCase;
 import com.java.bytecupidsbackend.domain.model.User;
-import com.java.bytecupidsbackend.presentation.dto.AuthResponse;
+import com.java.bytecupidsbackend.presentation.dto.LoginResponse;
 import com.java.bytecupidsbackend.presentation.dto.LoginRequest;
 import com.java.bytecupidsbackend.presentation.dto.RegisterRequest;
+import com.java.bytecupidsbackend.presentation.dto.RegisterResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.security.Timestamp;
+import java.util.Date;
 
 @RestController
 @RequestMapping("/auth")
@@ -25,14 +29,12 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody RegisterRequest request) {
-        registerUseCase.execute(request.getUsername(), request.getEmail(), request.getPassword());
-        return ResponseEntity.ok("Registered Successfully");
+    public ResponseEntity<RegisterResponse> register(@RequestBody RegisterRequest request) {
+        return ResponseEntity.ok(registerUseCase.execute(request.getUsername(), request.getEmail(), request.getPassword()));
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) {
-        String token = loginUseCase.execute(request.getEmail(), request.getPassword());
-        return ResponseEntity.ok(new AuthResponse(token));
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request) {
+        return ResponseEntity.ok(loginUseCase.execute(request.getEmail(), request.getPassword()));
     }
 }
