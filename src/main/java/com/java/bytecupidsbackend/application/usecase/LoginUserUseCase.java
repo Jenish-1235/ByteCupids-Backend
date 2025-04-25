@@ -57,6 +57,7 @@ public class LoginUserUseCase {
         user.setPassword("");
         loginResponse.setUser(user);
         loginResponse.setMessage("Login successful");
+        loginResponse.setCode(200);
         return loginResponse;
     }
 }
