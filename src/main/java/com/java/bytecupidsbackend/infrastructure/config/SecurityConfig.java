@@ -22,7 +22,7 @@ public class SecurityConfig {
                 .csrf().disable()
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/bytecupids/auth/register", "/bytecupids/auth/login", "/bytecupids/lab/get_modules").permitAll()
+                                .requestMatchers("/bytecupids/auth/register", "/bytecupids/auth/login", "/bytecupids/**").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .formLogin().disable();
