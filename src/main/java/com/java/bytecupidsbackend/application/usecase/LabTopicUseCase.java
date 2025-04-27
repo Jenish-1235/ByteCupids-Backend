@@ -29,7 +29,6 @@ public class LabTopicUseCase {
             response.setSuccess(false);
             response.setCode(404);
             response.setStatus("ERROR");
-            response.setMessage("No topics found");
         }
         return response;
     }
