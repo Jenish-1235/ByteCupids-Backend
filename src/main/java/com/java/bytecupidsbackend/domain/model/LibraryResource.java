@@ -17,4 +17,46 @@ public class LibraryResource {
         this.resourceType = resourceType;
         this.resourceUri = resourceUri;
     }
+
+    public LibraryResource() {}
+
+    public UUID getResourceId() {
+        return resourceId;
+    }
+
+    public void setResourceId(UUID resourceId) {
+        this.resourceId = resourceId;
+    }
+
+    public UUID getModuleId() {
+        return moduleId;
+    }
+
+    public void setModuleId(UUID moduleId) {
+        this.moduleId = moduleId;
+    }
+
+    public String getResourceName() {
+        return resourceName;
+    }
+
+    public void setResourceName(String resourceName) {
+        this.resourceName = resourceName;
+    }
+
+    public String getResourceType() {
+        return resourceType;
+    }
+
+    public void setResourceType(String resourceType) {
+        this.resourceType = resourceType;
+    }
+
+    public String getResourceUri() {
+        return resourceUri;
+    }
+
+    public void setResourceUri(String resourceUri) {
+        this.resourceUri = resourceUri;
+    }
 }

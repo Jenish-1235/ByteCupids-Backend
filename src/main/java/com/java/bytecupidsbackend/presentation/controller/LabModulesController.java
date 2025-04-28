@@ -3,6 +3,7 @@ package com.java.bytecupidsbackend.presentation.controller;
 import com.java.bytecupidsbackend.application.usecase.LabModuleUseCase;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,7 +17,7 @@ public class LabModulesController {
         this.labModuleUseCase = labModuleUseCase;
     }
 
-    @GetMapping
+    @PostMapping
             ("/get_modules")
     public ResponseEntity getModules() {
         return ResponseEntity.ok().body(labModuleUseCase.getModules());
