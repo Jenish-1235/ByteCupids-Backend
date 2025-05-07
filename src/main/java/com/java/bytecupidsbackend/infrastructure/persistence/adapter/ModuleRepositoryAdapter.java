@@ -18,7 +18,7 @@ public class ModuleRepositoryAdapter implements ModuleRepository {
         List<ModuleEntity> moduleEntities = jpaModuleRepository.findAll();
         List<Module> modules = new ArrayList<>();
         for(ModuleEntity moduleEntity : moduleEntities){
-            modules.add(new Module(moduleEntity.getModule_id() , moduleEntity.getModuleName(), moduleEntity.getModuleImgUri(), moduleEntity.getNoOfTopics()));
+            modules.add(new Module(moduleEntity.getModule_id() , moduleEntity.getModuleName(), moduleEntity.getNoOfTopics(), moduleEntity.getNoOfSubTopics()));
         }
         return modules;
     }
