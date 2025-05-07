@@ -2,20 +2,20 @@ package com.java.bytecupidsbackend.application.usecase;
 
 import com.java.bytecupidsbackend.domain.model.Module;
 import com.java.bytecupidsbackend.domain.repository.ModuleRepository;
-import com.java.bytecupidsbackend.presentation.dto.LabModuleResponse;
+import com.java.bytecupidsbackend.presentation.dto.ModuleResponse;
 
 import java.util.List;
 
-public class LabModuleUseCase {
+public class ModuleUseCase {
 
     private final ModuleRepository moduleRepository;
 
-    public LabModuleUseCase(final ModuleRepository moduleRepository) {
+    public ModuleUseCase(final ModuleRepository moduleRepository) {
         this.moduleRepository = moduleRepository;
     }
 
-    public LabModuleResponse getModules(){
-        LabModuleResponse response = new LabModuleResponse();
+    public ModuleResponse getModules(){
+        ModuleResponse response = new ModuleResponse();
         response.setTimestamp(String.valueOf(System.currentTimeMillis()));
         List<Module> moduleList = moduleRepository.getAllModules();
         response.setModules(moduleList);

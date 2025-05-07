@@ -1,11 +1,11 @@
 package com.java.bytecupidsbackend.presentation.dto;
 
-import com.java.bytecupidsbackend.domain.model.Topic;
+import com.java.bytecupidsbackend.domain.model.SubTopic;
 
 import java.util.List;
 
-public class LabTopicsResponse {
-    private List<Topic> topics;
+public class TopicsResponse {
+    private List<SubTopic> topics;
     private String message;
     private String status;
     private String error;
@@ -13,9 +13,9 @@ public class LabTopicsResponse {
     private Integer code;
     private Boolean success;
 
-    public LabTopicsResponse() {}
+    public TopicsResponse() {}
 
-    public LabTopicsResponse(List<Topic> topics, String message, String status, String error, String timestamp, Integer code, Boolean success) {
+    public TopicsResponse(List<SubTopic> topics, String message, String status, String error, String timestamp, Integer code, Boolean success) {
         this.topics = topics;
         this.message = message;
         this.status = status;
@@ -25,11 +25,11 @@ public class LabTopicsResponse {
         this.success = success;
     }
 
-    public List<Topic> getTopics() {
+    public List<SubTopic> getTopics() {
         return topics;
     }
 
-    public void setTopics(List<Topic> topics) {
+    public void setTopics(List<SubTopic> topics) {
         this.topics = topics;
     }
 

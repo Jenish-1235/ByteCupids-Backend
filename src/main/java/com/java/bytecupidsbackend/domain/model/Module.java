@@ -5,14 +5,14 @@ import java.util.UUID;
 public class Module {
     private UUID moduleId;
     private String name;
-    private String moduleImgUri;
     private int noOfTopics;
+    private int noOfSubTopics;
 
-    public Module(UUID moduleId, String name, String moduleImgUri, int noOfTopics) {
+    public Module(UUID moduleId, String name, int noOfTopics, int noOfSubTopics) {
         this.moduleId = moduleId;
         this.name = name;
-        this.moduleImgUri = moduleImgUri;
         this.noOfTopics = noOfTopics;
+        this.noOfSubTopics = noOfSubTopics;
     }
 
     public UUID getModuleId() {
@@ -31,19 +31,17 @@ public class Module {
         this.name = name;
     }
 
-    public String getModuleImgUri() {
-        return moduleImgUri;
-    }
-
-    public void setModuleImgUri(String moduleImgUri) {
-        this.moduleImgUri = moduleImgUri;
-    }
-
     public int getNoOfTopics() {
         return noOfTopics;
     }
 
     public void setNoOfTopics(int noOfTopics) {
         this.noOfTopics = noOfTopics;
+    }
+    public int getNoOfSubTopics() {
+        return noOfSubTopics;
+    }
+    public void setNoOfSubTopics(int noOfSubTopics) {
+        this.noOfSubTopics = noOfSubTopics;
     }
 }

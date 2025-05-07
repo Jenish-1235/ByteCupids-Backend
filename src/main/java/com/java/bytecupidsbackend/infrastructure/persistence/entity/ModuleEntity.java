@@ -18,13 +18,13 @@ public class ModuleEntity {
     private UUID module_id;
 
     private String moduleName;
-    private String moduleImgUri;
     private int noOfTopics;
+    private int noOfSubTopics;
 
-    public ModuleEntity(String moduleName, String moduleImgUri, int noOfTopics){
+    public ModuleEntity(String moduleName, int noOfTopics, int noOfSubTopics) {
         this.moduleName = moduleName;
-        this.moduleImgUri = moduleImgUri;
         this.noOfTopics = noOfTopics;
+        this.noOfSubTopics = noOfSubTopics;
     }
 
     public ModuleEntity() {}
@@ -45,19 +45,18 @@ public class ModuleEntity {
         this.moduleName = moduleName;
     }
 
-    public String getModuleImgUri() {
-        return moduleImgUri;
-    }
-
-    public void setModuleImgUri(String moduleImgUri) {
-        this.moduleImgUri = moduleImgUri;
-    }
-
     public int getNoOfTopics() {
         return noOfTopics;
     }
 
     public void setNoOfTopics(int noOfTopics) {
         this.noOfTopics = noOfTopics;
+    }
+
+    public int getNoOfSubTopics() {
+        return noOfSubTopics;
+    }
+    public void setNoOfSubTopics(int noOfSubTopics) {
+        this.noOfSubTopics = noOfSubTopics;
     }
 }

@@ -1,21 +1,21 @@
 package com.java.bytecupidsbackend.presentation.controller;
 
-import com.java.bytecupidsbackend.application.usecase.LabTopicUseCase;
-import com.java.bytecupidsbackend.presentation.dto.LabTopicsRequest;
+import com.java.bytecupidsbackend.application.usecase.TopicUseCase;
+import com.java.bytecupidsbackend.presentation.dto.TopicsRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/bytecupids/lab")
-public class LabTopicsController {
+public class TopicsController {
 
-    private final LabTopicUseCase labTopicUseCase;
-    public LabTopicsController(final LabTopicUseCase labTopicUseCase) {
+    private final TopicUseCase labTopicUseCase;
+    public TopicsController(final TopicUseCase labTopicUseCase) {
         this.labTopicUseCase = labTopicUseCase;
     }
 
     @PostMapping("/get_topics")
-    public ResponseEntity<?> getLabTopics(@RequestBody LabTopicsRequest request) {
+    public ResponseEntity<?> getLabTopics(@RequestBody TopicsRequest request) {
         return ResponseEntity.ok().body(labTopicUseCase.getAllTopics(request.getModuleId()));
     }
 }

@@ -1,21 +1,21 @@
 package com.java.bytecupidsbackend.application.usecase;
 
-import com.java.bytecupidsbackend.domain.model.Topic;
+import com.java.bytecupidsbackend.domain.model.SubTopic;
 import com.java.bytecupidsbackend.domain.repository.TopicRepository;
-import com.java.bytecupidsbackend.presentation.dto.LabTopicsResponse;
+import com.java.bytecupidsbackend.presentation.dto.TopicsResponse;
 
 import java.util.List;
 
-public class LabTopicUseCase {
+public class TopicUseCase {
 
     private final TopicRepository topicRepository;
-    public LabTopicUseCase(TopicRepository topicRepository) {
+    public TopicUseCase(TopicRepository topicRepository) {
         this.topicRepository = topicRepository;
     }
 
-    public LabTopicsResponse getAllTopics(String moduleId) {
-        LabTopicsResponse response = new LabTopicsResponse();
-        List<Topic> topics = topicRepository.getAllTopics(moduleId);
+    public TopicsResponse getAllTopics(String moduleId) {
+        TopicsResponse response = new TopicsResponse();
+        List<SubTopic> topics = topicRepository.getAllTopics(moduleId);
         response.setTopics(topics);
         response.setTimestamp(String.valueOf(System.currentTimeMillis()));
 

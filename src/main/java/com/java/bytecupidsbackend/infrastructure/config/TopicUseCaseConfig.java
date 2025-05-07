@@ -1,16 +1,16 @@
 package com.java.bytecupidsbackend.infrastructure.config;
 
-import com.java.bytecupidsbackend.application.usecase.LabTopicUseCase;
+import com.java.bytecupidsbackend.application.usecase.TopicUseCase;
 import com.java.bytecupidsbackend.domain.repository.TopicRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class LabTopicUseCaseConfig {
+public class TopicUseCaseConfig {
 
 
     @Bean
-    public LabTopicUseCase labTopicUseCase(TopicRepository topicRepository) {
-        return new LabTopicUseCase(topicRepository);
+    public TopicUseCase labTopicUseCase(TopicRepository topicRepository) {
+        return new TopicUseCase(topicRepository);
     }
 }

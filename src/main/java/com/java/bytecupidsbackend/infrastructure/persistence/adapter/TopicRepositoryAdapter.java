@@ -1,8 +1,8 @@
 package com.java.bytecupidsbackend.infrastructure.persistence.adapter;
 
-import com.java.bytecupidsbackend.domain.model.Topic;
+import com.java.bytecupidsbackend.domain.model.SubTopic;
 import com.java.bytecupidsbackend.domain.repository.TopicRepository;
-import com.java.bytecupidsbackend.infrastructure.persistence.entity.TopicEntity;
+import com.java.bytecupidsbackend.infrastructure.persistence.entity.SubTopicEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -18,11 +18,11 @@ public class TopicRepositoryAdapter implements TopicRepository {
     }
 
     @Override
-    public List<Topic> getAllTopics(String moduleId){
-        List<TopicEntity> topicEntityList = jpaTopicRepository.findAllByModuleId(UUID.fromString(moduleId));
-        List<Topic> topics = new ArrayList<>();
-        for (TopicEntity topicEntity : topicEntityList) {
-            topics.add(new Topic(topicEntity.getTopicId(), topicEntity.getModuleId(), topicEntity.getTopicName(), topicEntity.getNoOfLabs()));
+    public List<SubTopic> getAllTopics(String moduleId){
+        List<SubTopicEntity> topicEntityList = jpaTopicRepository.findAllByModuleId(UUID.fromString(moduleId));
+        List<SubTopic> topics = new ArrayList<>();
+        for (SubTopicEntity topicEntity : topicEntityList) {
+            topics.add(new SubTopic(topicEntity.getSubTopicId(), topicEntity.getModuleId(), topicEntity.getTopicName(), topicEntity.getSubTopicName()));
         }
         return topics;
     }
