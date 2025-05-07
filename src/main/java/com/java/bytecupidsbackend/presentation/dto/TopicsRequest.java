@@ -1,10 +1,10 @@
 package com.java.bytecupidsbackend.presentation.dto;
 
-public class LabTopicsRequest {
+public class TopicsRequest {
     private String moduleId;
     private String accessToken;
-    public LabTopicsRequest() {}
-    public LabTopicsRequest(String moduleId, String accessToken) {
+    public TopicsRequest() {}
+    public TopicsRequest(String moduleId, String accessToken) {
         this.moduleId = moduleId;
         this.accessToken = accessToken;
     }

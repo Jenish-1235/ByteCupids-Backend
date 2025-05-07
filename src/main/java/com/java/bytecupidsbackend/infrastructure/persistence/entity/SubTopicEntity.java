@@ -7,36 +7,29 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "topics")
-public class TopicEntity {
+public class SubTopicEntity {
 
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name="UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    private UUID topicId;
+    private UUID subTopicId;
 
     @Column(nullable = false)
     private UUID moduleId;
     private String topicName;
-    private int noOfLabs;
+    private String subTopicName;
 
-    public TopicEntity(UUID topicId, UUID moduleId, String topicName, int noOfLabs) {
-        this.topicId = topicId;
+    public SubTopicEntity(UUID subTopicId, UUID moduleId, String topicName, String subTopicName) {
+        this.subTopicId = subTopicId;
         this.moduleId = moduleId;
         this.topicName = topicName;
-        this.noOfLabs = noOfLabs;
+        this.subTopicName = subTopicName;
     }
 
-    public TopicEntity() {
+    public SubTopicEntity() {
 
     }
 
-    public UUID getTopicId() {
-        return topicId;
-    }
-
-    public void setTopicId(UUID topicId) {
-        this.topicId = topicId;
-    }
 
     public UUID getModuleId() {
         return moduleId;
@@ -54,11 +47,19 @@ public class TopicEntity {
         this.topicName = topicName;
     }
 
-    public int getNoOfLabs() {
-        return noOfLabs;
+    public UUID getSubTopicId() {
+        return subTopicId;
     }
 
-    public void setNoOfLabs(int noOfLabs) {
-        this.noOfLabs = noOfLabs;
+    public void setSubTopicId(UUID subTopicId) {
+        this.subTopicId = subTopicId;
+    }
+
+    public String getSubTopicName() {
+        return subTopicName;
+    }
+
+    public void setSubTopicName(String subTopicName) {
+        this.subTopicName = subTopicName;
     }
 }

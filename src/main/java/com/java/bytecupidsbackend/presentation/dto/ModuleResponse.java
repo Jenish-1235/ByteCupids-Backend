@@ -1,10 +1,9 @@
 package com.java.bytecupidsbackend.presentation.dto;
 
-import java.util.HashMap;
 import java.util.List;
 import com.java.bytecupidsbackend.domain.model.Module;
 
-public class LabModuleResponse {
+public class ModuleResponse {
     List<Module> modules;
     private String message;
     private String status;

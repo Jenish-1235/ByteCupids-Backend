@@ -1,9 +1,9 @@
 package com.java.bytecupidsbackend.domain.repository;
 
-import com.java.bytecupidsbackend.domain.model.Topic;
+import com.java.bytecupidsbackend.domain.model.SubTopic;
 
 import java.util.List;
 
 public interface TopicRepository {
-    List<Topic> getAllTopics(String moduleId);
+    List<SubTopic> getAllTopics(String moduleId);
 }
