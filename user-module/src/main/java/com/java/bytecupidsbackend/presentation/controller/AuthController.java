@@ -2,7 +2,6 @@ package com.java.bytecupidsbackend.presentation.controller;
 
 import com.java.bytecupidsbackend.application.usecase.LoginUserUseCase;
 import com.java.bytecupidsbackend.application.usecase.RegisterUserUseCase;
-import com.java.bytecupidsbackend.domain.model.User;
 import com.java.bytecupidsbackend.presentation.dto.LoginResponse;
 import com.java.bytecupidsbackend.presentation.dto.LoginRequest;
 import com.java.bytecupidsbackend.presentation.dto.RegisterRequest;
@@ -12,9 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.security.Timestamp;
-import java.util.Date;
 
 @RestController
 @RequestMapping("/bytecupids/auth")

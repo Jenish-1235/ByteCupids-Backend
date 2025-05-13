@@ -1,4 +1,4 @@
-package com.java.bytecupidsbackend.application.agents;
+package com.java.bytecupidsbackend.agentorchestration;
 
 public class OpenAIService implements AgentService {
     @Override

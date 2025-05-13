@@ -8,8 +8,6 @@ import com.java.bytecupidsbackend.infrastructure.security.JwtProvider;
 import com.java.bytecupidsbackend.presentation.dto.LoginResponse;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.util.Optional;
-
 public class LoginUserUseCase {
 
     private final UserRepository userRepository;

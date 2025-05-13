@@ -1,4 +1,4 @@
-package com.java.bytecupidsbackend.application.usecase.admin;
+package com.java.bytecupidsbackend.application.usecase;
 
 import com.java.bytecupidsbackend.application.agents.Manager;
 import com.java.bytecupidsbackend.presentation.dto.admin.AdminCreateModuleResponse;

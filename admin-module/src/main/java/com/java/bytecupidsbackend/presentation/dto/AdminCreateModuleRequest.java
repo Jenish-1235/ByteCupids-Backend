@@ -1,4 +1,4 @@
-package com.java.bytecupidsbackend.presentation.dto.admin;
+package com.java.bytecupidsbackend.presentation.dto;
 
 public class AdminCreateModuleRequest {
     private String accessToken;
