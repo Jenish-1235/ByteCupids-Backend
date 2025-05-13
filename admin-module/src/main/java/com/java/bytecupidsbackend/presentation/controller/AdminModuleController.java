@@ -1,7 +1,7 @@
 package com.java.bytecupidsbackend.presentation.controller;
 
-import com.java.bytecupidsbackend.application.usecase.admin.AdminModuleUseCase;
-import com.java.bytecupidsbackend.presentation.dto.admin.AdminCreateModuleRequest;
+import com.java.bytecupidsbackend.application.usecase.AdminModuleUseCase;
+import com.java.bytecupidsbackend.presentation.dto.AdminCreateModuleRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

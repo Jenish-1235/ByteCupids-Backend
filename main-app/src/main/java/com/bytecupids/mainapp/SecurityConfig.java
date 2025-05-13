@@ -1,4 +1,4 @@
-package com.java.bytecupidsbackend.infrastructure.config;
+package com.bytecupids.mainapp;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +22,7 @@ public class SecurityConfig {
                 .csrf().disable()
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/bytecupids/auth/register", "/bytecupids/auth/login", "/bytecupids/**").permitAll()
+                                .requestMatchers("/**").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .formLogin().disable();
@@ -36,6 +36,7 @@ public class SecurityConfig {
         config.setAllowedOrigins(List.of("http://localhost:5173"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
+        config.setExposedHeaders(List.of("Authorization", "Content-Type"));
         config.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
@@ -43,3 +44,4 @@ public class SecurityConfig {
         return source;
     }
 }
+

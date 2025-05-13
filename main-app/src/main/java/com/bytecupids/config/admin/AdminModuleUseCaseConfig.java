@@ -1,7 +1,7 @@
-package com.java.bytecupidsbackend.infrastructure.config.admin;
+package com.bytecupids.config.admin;
 
-import com.java.bytecupidsbackend.application.agents.Manager;
-import com.java.bytecupidsbackend.application.usecase.admin.AdminModuleUseCase;
+import com.java.bytecupidsbackend.agentorchestration.Manager;
+import com.java.bytecupidsbackend.application.usecase.AdminModuleUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 

@@ -3,9 +3,7 @@ package com.java.bytecupidsbackend.infrastructure.persistence.adapter;
 import com.java.bytecupidsbackend.domain.model.LibraryResource;
 import com.java.bytecupidsbackend.domain.repository.LibraryResourceRepository;
 import com.java.bytecupidsbackend.infrastructure.persistence.entity.LibraryResourceEntity;
-import kotlin.contracts.Returns;
 import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;

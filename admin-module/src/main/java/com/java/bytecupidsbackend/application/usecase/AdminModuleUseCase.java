@@ -1,8 +1,8 @@
 package com.java.bytecupidsbackend.application.usecase;
 
-import com.java.bytecupidsbackend.application.agents.Manager;
-import com.java.bytecupidsbackend.presentation.dto.admin.AdminCreateModuleResponse;
-import org.hibernate.engine.spi.Managed;
+import com.java.bytecupidsbackend.agentorchestration.Manager;
+import com.java.bytecupidsbackend.presentation.dto.AdminCreateModuleRequest;
+import com.java.bytecupidsbackend.presentation.dto.AdminCreateModuleResponse;
 
 public class AdminModuleUseCase {
     private final Manager manager;
