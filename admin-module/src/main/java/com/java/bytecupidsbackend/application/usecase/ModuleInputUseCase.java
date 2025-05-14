@@ -1,18 +1,17 @@
 package com.java.bytecupidsbackend.application.usecase;
 
 import com.java.bytecupidsbackend.agentorchestration.Manager;
-import com.java.bytecupidsbackend.presentation.dto.AdminCreateModuleRequest;
-import com.java.bytecupidsbackend.presentation.dto.AdminCreateModuleResponse;
+import com.java.bytecupidsbackend.presentation.dto.ModuleInputResponse;
 
-public class AdminModuleUseCase {
+public class ModuleInputUseCase {
     private final Manager manager;
-    public AdminModuleUseCase(Manager manager) {
+    public ModuleInputUseCase(Manager manager) {
         this.manager = manager;
     }
     private String model = "USER_INPUT_AGENT";
-    public AdminCreateModuleResponse execute(String moduleName, String moduleMetadata) {
+    public ModuleInputResponse execute(String moduleName, String moduleMetadata) {
         String prompt = "Module Name: " + moduleName + "\nMetadata: " + moduleMetadata;
         String response = manager.execute(prompt, model);
-        return new AdminCreateModuleResponse();
+        return new ModuleInputResponse();
     }
 }

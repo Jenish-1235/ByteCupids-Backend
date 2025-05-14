@@ -1,7 +1,7 @@
 package com.bytecupids.config.admin;
 
 import com.java.bytecupidsbackend.agentorchestration.Manager;
-import com.java.bytecupidsbackend.application.usecase.AdminModuleUseCase;
+import com.java.bytecupidsbackend.application.usecase.ModuleInputUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class AdminModuleUseCaseConfig {
 
     @Bean
-    public AdminModuleUseCase getAdminModuleUseCase(Manager manager) {
-        return new AdminModuleUseCase(manager);
+    public ModuleInputUseCase getAdminModuleUseCase(Manager manager) {
+        return new ModuleInputUseCase(manager);
     }
 }

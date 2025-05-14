@@ -4,14 +4,10 @@ public class AgentFactory {
 
     public static AgentService getAgent(String model){
         switch (model) {
-            case "CLAUDE":
-                return new ClaudeAiService();
-            case "OPENAI":
-                return new OpenAIService();
-            case "GEMINI":
-                return new GeminiService();
+            case "ADMIN_INPUT_FORMATTER":
+                return new ModuleInputFormatter();
             default:
-                return new GeminiService();
+                return new GeminiFallbackService();
         }
     }
 }
