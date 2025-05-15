@@ -27,7 +27,7 @@ public class AzureOpenAIService {
         this.secretManager = secretManager;
     }
 
-    public Flux<String> chatStream(String agentKey, String userPrompt, double temperature) {
+    public Flux<String> chatStream(String agentKey, String systemPrompt, String userPrompt, double temperature) {
         AzureOpenAIProperties.AgentConfig config = agentConfigs.get(agentKey);
 
         if (config == null) {
@@ -41,7 +41,7 @@ public class AzureOpenAIService {
                 .buildAsyncClient();
 
         List<ChatRequestMessage> messages = List.of(
-                new ChatRequestSystemMessage(ModuleInputFormatterPromptProvider.getPrompt()),
+                new ChatRequestSystemMessage(systemPrompt),
                 new ChatRequestUserMessage(userPrompt)
         );
 
@@ -61,6 +61,30 @@ public class AzureOpenAIService {
                             return token;
                 })
                 .filter(token -> token != null && !token.isBlank());
+    }
+
+    public String getResponse(String agentKey, String systemPrompt, String userPrompt, double temperature){
+        AzureOpenAIProperties.AgentConfig config = agentConfigs.get(agentKey);
+        if (config == null) {
+            throw new IllegalArgumentException("No OpenAI config found for agent: " + agentKey);
+        }
+
+        String apiKey = secretManager.getSecret("bytecupids", "AZURE_OPENAI_KEY").trim();
+        OpenAIClient client = new OpenAIClientBuilder()
+                .endpoint(config.getEndPoint())
+                .credential(new AzureKeyCredential(apiKey))
+                .buildClient();
+        List<ChatRequestMessage> messages = List.of(
+                new ChatRequestSystemMessage(systemPrompt),
+                new ChatRequestUserMessage(userPrompt)
+        );
+
+        ChatCompletionsOptions options = new ChatCompletionsOptions(messages)
+                .setMaxTokens(30000)
+                .setTemperature(temperature)
+                .setTopP(0.9);
+
+        return client.getChatCompletions(config.getDeploymentId(), options).getChoices().get(0).getMessage().getContent();
     }
 
 }

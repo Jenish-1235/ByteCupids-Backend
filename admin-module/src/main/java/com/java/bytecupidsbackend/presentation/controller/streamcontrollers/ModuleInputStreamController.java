@@ -25,7 +25,8 @@ public class ModuleInputStreamController {
         String moduleName = request.getModuleName();
         String moduleMetadata = request.getModuleMetadata();
         String prompt = moduleName + "\n" + moduleMetadata;
-        return manager.getStream(prompt, agentKey);
+        String formattedMetadata = manager.getResponse(prompt, agentKey);
+        return Flux.just(formattedMetadata);
     }
 
 

@@ -19,6 +19,16 @@ public class Manager {
             return Flux.empty();
         }
         AgentService selectedAgent = agentFactory.getAgent(agentKey);
+        return selectedAgent.getStreamResponse(prompt, agentKey);
+    }
+
+    public String getResponse(String prompt, String agentKey) {
+        if (prompt.isEmpty() || agentKey.isEmpty()) {
+            System.out.println("Empty prompt or agent key");
+            return "";
+        }
+
+        AgentService selectedAgent = agentFactory.getAgent(agentKey);
         return selectedAgent.getResponse(prompt, agentKey);
     }
 }
