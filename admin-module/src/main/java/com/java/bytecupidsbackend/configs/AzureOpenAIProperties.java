@@ -1,20 +1,17 @@
 package com.java.bytecupidsbackend.configs;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
 import java.util.Map;
 
-@Configuration
+@Component
 @ConfigurationProperties(prefix = "azure.openai")
 public class AzureOpenAIProperties {
 
-    private Map<String, AgentConfig> agents = new HashMap<>();
+    private Map<String, AgentConfig> agents;
 
     public Map<String, AgentConfig> getAgents() {
-        System.out.println(agents);
         return agents;
     }
 
@@ -25,6 +22,7 @@ public class AzureOpenAIProperties {
     public static class AgentConfig {
         private String deploymentId;
         private String endPoint;
+        private String systemPrompt;
 
         public String getDeploymentId() {
             return deploymentId;
@@ -41,5 +39,14 @@ public class AzureOpenAIProperties {
         public void setEndPoint(String endPoint) {
             this.endPoint = endPoint;
         }
+
+        public String getSystemPrompt() {
+            return systemPrompt;
+        }
+
+        public void setSystemPrompt(String systemPrompt) {
+            this.systemPrompt = systemPrompt;
+        }
+
     }
 }

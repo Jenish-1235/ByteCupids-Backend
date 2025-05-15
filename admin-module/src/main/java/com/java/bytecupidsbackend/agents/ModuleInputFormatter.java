@@ -12,8 +12,8 @@ public class ModuleInputFormatter implements AgentService {
     }
 
     @Override
-    public String getResponse(String prompt) {
-        return azureOpenAIService.chat("module-input-formatter", "Hello", "Hello", 0.3);
+    public String getResponse(String prompt, String agentKey) {
+        return azureOpenAIService.chat(agentKey, "Hello", 0.3);
     }
 
 }

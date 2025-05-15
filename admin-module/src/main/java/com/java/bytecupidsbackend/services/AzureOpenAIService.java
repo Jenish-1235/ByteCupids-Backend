@@ -23,10 +23,8 @@ public class AzureOpenAIService {
         this.secretManager = secretManager;
     }
 
-    public String chat(String agentKey, String systemPrompt, String userPrompt, double temperature) {
-        AzureOpenAIProperties.AgentConfig config = new AzureOpenAIProperties.AgentConfig();
-        config.setDeploymentId("Module-Input-Formatter");
-        config.setEndPoint("https://bytecupids-agents-services.openai.azure.com/");
+    public String chat(String agentKey, String userPrompt, double temperature) {
+        AzureOpenAIProperties.AgentConfig config = agentConfigs.get(agentKey);
 
         if (config == null) {
             throw new IllegalArgumentException("No OpenAI config found for agent: " + agentKey);
@@ -38,6 +36,7 @@ public class AzureOpenAIService {
                 .credential(new AzureKeyCredential(apiKey))
                 .buildClient();
 
+        String systemPrompt = config.getSystemPrompt();
         List<ChatRequestMessage> messages = List.of(
                 new ChatRequestSystemMessage(systemPrompt),
                 new ChatRequestUserMessage(userPrompt)

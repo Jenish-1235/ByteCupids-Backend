@@ -9,10 +9,10 @@ public class ModuleInputUseCase {
     public ModuleInputUseCase(Manager manager) {
         this.manager = manager;
     }
-    private String agent = "MODULE_INPUT_FORMATTER";
+    private String agentKey = "module-input-formatter";
     public ModuleInputResponse execute(String moduleName, String moduleMetadata) {
         String prompt = ModuleInputFormatterPromptProvider.getPrompt(moduleName, moduleMetadata);
-        String response = manager.execute(prompt, agent);
+        String response = manager.execute(prompt, agentKey);
         ModuleInputResponse moduleInputResponse = new ModuleInputResponse();
         moduleInputResponse.setMessage(response);
         return moduleInputResponse;

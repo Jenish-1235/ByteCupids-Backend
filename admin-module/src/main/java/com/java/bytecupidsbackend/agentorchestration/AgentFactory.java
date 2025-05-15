@@ -13,10 +13,10 @@ public class AgentFactory {
         this.service = service;
     }
 
-    public AgentService getAgent(String model){
+    public AgentService getAgent(String agentKey){
 
-        switch (model) {
-            case "MODULE_INPUT_FORMATTER":
+        switch (agentKey) {
+            case "module-input-formatter":
                 return new ModuleInputFormatter(service);
             default:
                 return new GeminiFallbackService();

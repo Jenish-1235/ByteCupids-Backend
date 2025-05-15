@@ -11,12 +11,12 @@ public class Manager {
         this.agentFactory = agentFactory;
     }
 
-    public String execute(String prompt, String agent) {
+    public String execute(String prompt, String agentKey) {
 
-        if (prompt.isEmpty() || agent.isEmpty()) {
+        if (prompt.isEmpty() || agentKey.isEmpty()) {
             return "Please enter a prompt and a model";
         }
-        AgentService selectedAgent = agentFactory.getAgent(agent);
-        return selectedAgent.getResponse(prompt);
+        AgentService selectedAgent = agentFactory.getAgent(agentKey);
+        return selectedAgent.getResponse(prompt, agentKey);
     }
 }
