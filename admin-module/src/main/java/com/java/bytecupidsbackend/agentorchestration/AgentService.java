@@ -1,5 +1,7 @@
 package com.java.bytecupidsbackend.agentorchestration;
 
+import reactor.core.publisher.Flux;
+
 public interface AgentService {
-    String getResponse(String prompt, String agentKey);
+    Flux<String> getResponse(String prompt, String agentKey);
 }

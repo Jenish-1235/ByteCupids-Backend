@@ -14,7 +14,6 @@ public class AgentFactory {
     }
 
     public AgentService getAgent(String agentKey){
-
         switch (agentKey) {
             case "module-input-formatter":
                 return new ModuleInputFormatter(service);

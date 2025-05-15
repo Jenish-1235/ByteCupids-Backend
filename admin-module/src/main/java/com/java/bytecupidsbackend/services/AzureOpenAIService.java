@@ -1,12 +1,16 @@
 package com.java.bytecupidsbackend.services;
 
+import com.azure.ai.openai.OpenAIAsyncClient;
 import com.azure.ai.openai.OpenAIClient;
 import com.azure.ai.openai.OpenAIClientBuilder;
+import com.azure.ai.openai.implementation.accesshelpers.ChatCompletionsOptionsAccessHelper;
 import com.azure.ai.openai.models.*;
 import com.azure.core.credential.AzureKeyCredential;
 import com.java.bytecupidsbackend.configs.AzureOpenAIProperties;
 import com.java.bytecupidsbackend.configs.GCPSecretsManager;
+import com.java.bytecupidsbackend.promptdirectory.ModuleInputFormatterPromptProvider;
 import org.springframework.stereotype.Component;
+import reactor.core.publisher.Flux;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +27,7 @@ public class AzureOpenAIService {
         this.secretManager = secretManager;
     }
 
-    public String chat(String agentKey, String userPrompt, double temperature) {
+    public Flux<String> chatStream(String agentKey, String userPrompt, double temperature) {
         AzureOpenAIProperties.AgentConfig config = agentConfigs.get(agentKey);
 
         if (config == null) {
@@ -31,14 +35,13 @@ public class AzureOpenAIService {
         }
 
         String apiKey = secretManager.getSecret("bytecupids", "AZURE_OPENAI_KEY").trim();
-        OpenAIClient client = new OpenAIClientBuilder()
+        OpenAIAsyncClient client = new OpenAIClientBuilder()
                 .endpoint(config.getEndPoint())
                 .credential(new AzureKeyCredential(apiKey))
-                .buildClient();
+                .buildAsyncClient();
 
-        String systemPrompt = config.getSystemPrompt();
         List<ChatRequestMessage> messages = List.of(
-                new ChatRequestSystemMessage(systemPrompt),
+                new ChatRequestSystemMessage(ModuleInputFormatterPromptProvider.getPrompt()),
                 new ChatRequestUserMessage(userPrompt)
         );
 
@@ -47,7 +50,17 @@ public class AzureOpenAIService {
                 .setTemperature(temperature)
                 .setTopP(0.9);
 
-        ChatCompletions response = client.getChatCompletions(config.getDeploymentId(), options);
-        return response.getChoices().get(0).getMessage().getContent();
+        ChatCompletionsOptionsAccessHelper.setStream(options, true);
+        return Flux.from(client.getChatCompletionsStream(config.getDeploymentId(), options)).map(
+                        response -> {
+                            if (response.getChoices() == null || response.getChoices().isEmpty()) {
+                                return "";
+                            }
+                            String token = String.valueOf(response.getChoices().get(0).getDelta().getContent());
+                            System.out.println("🔁 Token: " + token);
+                            return token;
+                })
+                .filter(token -> token != null && !token.isBlank());
     }
+
 }

@@ -1,6 +1,7 @@
 package com.java.bytecupidsbackend.agentorchestration;
 
 import org.springframework.stereotype.Component;
+import reactor.core.publisher.Flux;
 
 @Component
 public class Manager {
@@ -11,10 +12,11 @@ public class Manager {
         this.agentFactory = agentFactory;
     }
 
-    public String execute(String prompt, String agentKey) {
+    public Flux<String> getStream(String prompt, String agentKey) {
 
         if (prompt.isEmpty() || agentKey.isEmpty()) {
-            return "Please enter a prompt and a model";
+            System.out.println("Empty prompt or agent key");
+            return Flux.empty();
         }
         AgentService selectedAgent = agentFactory.getAgent(agentKey);
         return selectedAgent.getResponse(prompt, agentKey);
