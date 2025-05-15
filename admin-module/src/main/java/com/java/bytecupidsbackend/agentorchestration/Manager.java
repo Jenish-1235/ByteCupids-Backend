@@ -4,14 +4,19 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Manager {
-    public String execute(String prompt, String model) {
-        if (prompt.equals("")) {
-            return "Please enter a prompt for the model: " + model;
+
+    private final AgentFactory agentFactory;
+
+    public Manager(AgentFactory agentFactory) {
+        this.agentFactory = agentFactory;
+    }
+
+    public String execute(String prompt, String agent) {
+
+        if (prompt.isEmpty() || agent.isEmpty()) {
+            return "Please enter a prompt and a model";
         }
-        if (model.equals("")) {
-            return "Please enter a model for the prompt: " + prompt;
-        }
-        AgentService agent = AgentFactory.getAgent(model);
-        return agent.getResponse(prompt);
+        AgentService selectedAgent = agentFactory.getAgent(agent);
+        return selectedAgent.getResponse(prompt);
     }
 }

@@ -2,16 +2,20 @@ package com.java.bytecupidsbackend.application.usecase;
 
 import com.java.bytecupidsbackend.agentorchestration.Manager;
 import com.java.bytecupidsbackend.presentation.dto.ModuleInputResponse;
+import com.java.bytecupidsbackend.promptdirectory.ModuleInputFormatterPromptProvider;
 
 public class ModuleInputUseCase {
     private final Manager manager;
     public ModuleInputUseCase(Manager manager) {
         this.manager = manager;
     }
-    private String model = "USER_INPUT_AGENT";
+    private String agent = "MODULE_INPUT_FORMATTER";
     public ModuleInputResponse execute(String moduleName, String moduleMetadata) {
-        String prompt = "Module Name: " + moduleName + "\nMetadata: " + moduleMetadata;
-        String response = manager.execute(prompt, model);
-        return new ModuleInputResponse();
+        String prompt = ModuleInputFormatterPromptProvider.getPrompt(moduleName, moduleMetadata);
+        String response = manager.execute(prompt, agent);
+        ModuleInputResponse moduleInputResponse = new ModuleInputResponse();
+        moduleInputResponse.setMessage(response);
+        return moduleInputResponse;
+
     }
 }
