@@ -25,7 +25,7 @@ public class AgentFactory {
             case "module-input-formatter":
                 return new ModuleInputFormatter(openAIService);
             case "topic-list-generator":
-                return new TopicListGenerator(claudService);
+                return new TopicListGenerator(openAIService);
             default:
                 return new GeminiFallbackService();
         }

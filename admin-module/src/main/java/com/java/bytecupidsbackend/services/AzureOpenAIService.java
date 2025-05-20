@@ -80,7 +80,7 @@ public class AzureOpenAIService {
         );
 
         ChatCompletionsOptions options = new ChatCompletionsOptions(messages)
-                .setMaxTokens(30000)
+                .setMaxTokens(16384)
                 .setTemperature(temperature)
                 .setTopP(0.9);
 
