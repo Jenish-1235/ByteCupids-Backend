@@ -8,16 +8,14 @@ import com.azure.ai.openai.models.*;
 import com.azure.core.credential.AzureKeyCredential;
 import com.java.bytecupidsbackend.configs.AzureOpenAIProperties;
 import com.java.bytecupidsbackend.configs.GCPSecretsManager;
-import com.java.bytecupidsbackend.promptdirectory.ModuleInputFormatterPromptProvider;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 @Component
-public class AzureOpenAIService {
+public class AzureOpenAIService implements ExternalLLmService {
 
     private final Map<String, AzureOpenAIProperties.AgentConfig> agentConfigs;
     private final GCPSecretsManager secretManager;
@@ -27,7 +25,8 @@ public class AzureOpenAIService {
         this.secretManager = secretManager;
     }
 
-    public Flux<String> chatStream(String agentKey, String systemPrompt, String userPrompt, double temperature) {
+    @Override
+    public Flux<String> getStreamResponse(String agentKey, String systemPrompt, String userPrompt, double temperature) {
         AzureOpenAIProperties.AgentConfig config = agentConfigs.get(agentKey);
 
         if (config == null) {
@@ -63,6 +62,7 @@ public class AzureOpenAIService {
                 .filter(token -> token != null && !token.isBlank());
     }
 
+    @Override
     public String getResponse(String agentKey, String systemPrompt, String userPrompt, double temperature){
         AzureOpenAIProperties.AgentConfig config = agentConfigs.get(agentKey);
         if (config == null) {

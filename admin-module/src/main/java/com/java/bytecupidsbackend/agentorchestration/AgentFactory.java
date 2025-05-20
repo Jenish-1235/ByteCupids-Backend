@@ -1,7 +1,6 @@
 package com.java.bytecupidsbackend.agentorchestration;
 
-import com.java.bytecupidsbackend.agents.ModuleInputFormatter;
-import com.java.bytecupidsbackend.agents.TopicListGenerator;
+import com.java.bytecupidsbackend.agents.*;
 import com.java.bytecupidsbackend.services.AzureOpenAIService;
 import com.java.bytecupidsbackend.services.ClaudeService;
 import com.java.bytecupidsbackend.services.GeminiService;
@@ -26,6 +25,12 @@ public class AgentFactory {
                 return new ModuleInputFormatter(openAIService);
             case "topic-list-generator":
                 return new TopicListGenerator(openAIService);
+                case "academic-content-creator":
+                return new AcademicContentCreator(openAIService);
+            case "practical-content-creator":
+                return new PracticalContentCreator(openAIService);
+            case "content-validator":
+                return new ContentValidator(openAIService);
             default:
                 return new GeminiFallbackService();
         }

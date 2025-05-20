@@ -15,7 +15,7 @@ public class ModuleInputFormatter implements AgentService {
 
     @Override
     public Flux<String> getStreamResponse(String prompt, String agentKey) {
-        return azureOpenAIService.chatStream(agentKey, ModuleInputFormatterPromptProvider.getPrompt() ,prompt, 0.3);
+        return azureOpenAIService.getStreamResponse(agentKey, ModuleInputFormatterPromptProvider.getPrompt() ,prompt, 0.3);
     }
 
     @Override

@@ -33,5 +33,8 @@ dependencies {
     implementation("com.azure:azure-ai-openai:1.0.0-beta.16") // or latest stable
     implementation("com.azure:azure-core:1.44.0")            // ensure core for AzureKeyCredential
     implementation("com.google.cloud:google-cloud-secretmanager:2.62.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0") // or other converter
+    implementation("com.squareup.okhttp3:okhttp:4.9.3")
 
 }
