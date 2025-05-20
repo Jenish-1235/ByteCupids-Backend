@@ -1,6 +1,6 @@
 package com.java.bytecupidsbackend.promptdirectory;
 
-public class ModuleInputFormatterPromptProvider {
+public class ModuleInputFormatterPromptProvider implements PromptProvider {
     public static String getPrompt() {
         return "You are an expert AI agent responsible for processing and structuring any educational module or course input for an online learning platform.\n" +
                 "Your task is to take a module name and accompanying metadata, then convert it into a clean, structured JSON format suitable for downstream AI agents.\n" +

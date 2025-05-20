@@ -22,7 +22,6 @@ public class AzureOpenAIProperties {
     public static class AgentConfig {
         private String deploymentId;
         private String endPoint;
-        private String systemPrompt;
 
         public String getDeploymentId() {
             return deploymentId;
@@ -38,14 +37,6 @@ public class AzureOpenAIProperties {
 
         public void setEndPoint(String endPoint) {
             this.endPoint = endPoint;
-        }
-
-        public String getSystemPrompt() {
-            return systemPrompt;
-        }
-
-        public void setSystemPrompt(String systemPrompt) {
-            this.systemPrompt = systemPrompt;
         }
 
     }
