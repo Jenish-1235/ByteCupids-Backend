@@ -17,8 +17,21 @@ repositories {
     mavenCentral()
 }
 
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:2023.0.1")
+    }
+}
+
+
 dependencies {
     implementation(project(":shared-domain"))
     implementation("org.springframework:spring-context")
     implementation("org.springframework:spring-web")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("com.fasterxml.jackson.core:jackson-databind")
+    implementation("com.azure:azure-ai-openai:1.0.0-beta.16") // or latest stable
+    implementation("com.azure:azure-core:1.44.0")            // ensure core for AzureKeyCredential
+    implementation("com.google.cloud:google-cloud-secretmanager:2.62.0")
+
 }

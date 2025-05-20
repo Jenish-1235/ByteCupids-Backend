@@ -1,14 +1,14 @@
 package com.java.bytecupidsbackend.presentation.dto;
 
-public class AdminCreateModuleRequest {
+public class ModuleInputRequest {
     private String accessToken;
     private String moduleName;
     private String moduleMetadata;
 
-    public AdminCreateModuleRequest() {
+    public ModuleInputRequest() {
 
     }
-    public AdminCreateModuleRequest(String accessToken, String moduleName, String moduleMetadata) {
+    public ModuleInputRequest(String accessToken, String moduleName, String moduleMetadata) {
         this.accessToken = accessToken;
         this.moduleName = moduleName;
         this.moduleMetadata = moduleMetadata;
