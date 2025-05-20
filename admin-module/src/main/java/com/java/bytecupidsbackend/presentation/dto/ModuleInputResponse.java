@@ -1,6 +1,6 @@
 package com.java.bytecupidsbackend.presentation.dto;
 
-public class AdminCreateModuleResponse {
+public class ModuleInputResponse {
     private String moduleName;
     private String moduleId;
     private String message;
@@ -10,9 +10,9 @@ public class AdminCreateModuleResponse {
     private Integer code;
     private Boolean success;
 
-    public AdminCreateModuleResponse() {}
+    public ModuleInputResponse() {}
 
-    public AdminCreateModuleResponse(String moduleName, String moduleId, String message, String status, String error, String timeStamp, Integer code, Boolean success) {
+    public ModuleInputResponse(String moduleName, String moduleId, String message, String status, String error, String timeStamp, Integer code, Boolean success) {
         this.moduleName = moduleName;
         this.moduleId = moduleId;
         this.message = message;
