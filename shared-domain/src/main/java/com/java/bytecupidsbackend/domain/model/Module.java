@@ -7,12 +7,14 @@ public class Module {
     private String name;
     private int noOfTopics;
     private int noOfSubTopics;
+    private String difficultyLevel;
 
-    public Module(UUID moduleId, String name, int noOfTopics, int noOfSubTopics) {
+    public Module(UUID moduleId, String name, int noOfTopics, int noOfSubTopics,String difficultyLevel) {
         this.moduleId = moduleId;
         this.name = name;
         this.noOfTopics = noOfTopics;
         this.noOfSubTopics = noOfSubTopics;
+        this.difficultyLevel = difficultyLevel;
     }
 
     public UUID getModuleId() {
@@ -43,5 +45,13 @@ public class Module {
     }
     public void setNoOfSubTopics(int noOfSubTopics) {
         this.noOfSubTopics = noOfSubTopics;
+    }
+
+    public String getDifficultyLevel() {
+        return difficultyLevel;
+    }
+
+    public void setDifficultyLevel(String difficultyLevel) {
+        this.difficultyLevel = difficultyLevel;
     }
 }

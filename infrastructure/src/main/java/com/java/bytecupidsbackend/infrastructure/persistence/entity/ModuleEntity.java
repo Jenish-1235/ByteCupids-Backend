@@ -18,16 +18,21 @@ public class ModuleEntity {
     private UUID module_id;
 
     private String moduleName;
+    private String difficultyLevel;
     private int noOfTopics;
     private int noOfSubTopics;
 
-    public ModuleEntity(String moduleName, int noOfTopics, int noOfSubTopics) {
+    public ModuleEntity(UUID module_id, String moduleName, String difficultyLevel, int noOfTopics, int noOfSubTopics) {
+        this.module_id = module_id;
         this.moduleName = moduleName;
+        this.difficultyLevel = difficultyLevel;
         this.noOfTopics = noOfTopics;
         this.noOfSubTopics = noOfSubTopics;
     }
 
-    public ModuleEntity() {}
+    public ModuleEntity() {
+
+    }
 
     public UUID getModule_id() {
         return module_id;
@@ -45,6 +50,14 @@ public class ModuleEntity {
         this.moduleName = moduleName;
     }
 
+    public String getDifficultyLevel() {
+        return difficultyLevel;
+    }
+
+    public void setDifficultyLevel(String difficultyLevel) {
+        this.difficultyLevel = difficultyLevel;
+    }
+
     public int getNoOfTopics() {
         return noOfTopics;
     }
@@ -56,6 +69,7 @@ public class ModuleEntity {
     public int getNoOfSubTopics() {
         return noOfSubTopics;
     }
+
     public void setNoOfSubTopics(int noOfSubTopics) {
         this.noOfSubTopics = noOfSubTopics;
     }
