@@ -5,15 +5,19 @@ import java.util.UUID;
 public class SubTopic {
     private UUID subTopicId;
     private UUID moduleId;
-    private String topicName;
+    private UUID topicId;
     private String subTopicName;
+    private int sequenceNumber;
 
-    public SubTopic(UUID subTopicId, UUID moduleId, String topicName, String subTopicName) {
+    public SubTopic(UUID subTopicId, UUID moduleId, UUID topicId, String subTopicName, int sequenceNumber) {
         this.subTopicId = subTopicId;
         this.moduleId = moduleId;
-        this.topicName = topicName;
+        this.topicId = topicId;
         this.subTopicName = subTopicName;
+        this.sequenceNumber = sequenceNumber;
     }
+
+    public SubTopic() {}
 
     public UUID getSubTopicId() {
         return subTopicId;
@@ -31,12 +35,12 @@ public class SubTopic {
         this.moduleId = moduleId;
     }
 
-    public String getTopicName() {
-        return topicName;
+    public UUID getTopicId() {
+        return topicId;
     }
 
-    public void setTopicName(String topicName) {
-        this.topicName = topicName;
+    public void setTopicId(UUID topicId) {
+        this.topicId = topicId;
     }
 
     public String getSubTopicName() {
@@ -45,5 +49,13 @@ public class SubTopic {
 
     public void setSubTopicName(String subTopicName) {
         this.subTopicName = subTopicName;
+    }
+
+    public int getSequenceNumber() {
+        return sequenceNumber;
+    }
+
+    public void setSequenceNumber(int sequenceNumber) {
+        this.sequenceNumber = sequenceNumber;
     }
 }

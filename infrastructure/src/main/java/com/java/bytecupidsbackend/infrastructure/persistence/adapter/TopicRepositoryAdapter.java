@@ -18,11 +18,17 @@ public class TopicRepositoryAdapter implements TopicRepository {
     }
 
     @Override
-    public List<SubTopic> getAllTopics(String moduleId){
-        List<SubTopicEntity> topicEntityList = jpaTopicRepository.findAllByModuleId(UUID.fromString(moduleId));
+    public List<SubTopic> getAllTopics(String moduleId) {
+        List<SubTopicEntity> topicEntityList = jpaTopicRepository.findAllByModuleEntity_ModuleId(UUID.fromString(moduleId));
         List<SubTopic> topics = new ArrayList<>();
-        for (SubTopicEntity topicEntity : topicEntityList) {
-            topics.add(new SubTopic(topicEntity.getSubTopicId(), topicEntity.getModuleId(), topicEntity.getTopicName(), topicEntity.getSubTopicName()));
+        for (SubTopicEntity subTopicEntity : topicEntityList) {
+            topics.add(new SubTopic(
+                    subTopicEntity.getSubTopicId(),
+                    subTopicEntity.getModuleEntity().getModuleId(),
+                    subTopicEntity.getTopicEntity().getTopicId(),
+                    subTopicEntity.getSubTopicName(),
+                    subTopicEntity.getSequenceNumber()
+            ));
         }
         return topics;
     }

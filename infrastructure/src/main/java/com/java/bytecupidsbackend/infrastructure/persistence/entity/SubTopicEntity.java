@@ -6,45 +6,36 @@ import org.hibernate.annotations.GenericGenerator;
 import java.util.UUID;
 
 @Entity
-@Table(name = "topics")
+@Table(name = "subtopics")
 public class SubTopicEntity {
 
     @Id
     @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name="UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private UUID subTopicId;
 
+    @ManyToOne
+    @JoinColumn(name = "module_id", nullable = false)
+    private ModuleEntity moduleEntity;
+
+    @ManyToOne
+    @JoinColumn(name = "topic_id", nullable = false)
+    private TopicEntity topicEntity;
+
     @Column(nullable = false)
-    private UUID moduleId;
-    private String topicName;
     private String subTopicName;
 
-    public SubTopicEntity(UUID subTopicId, UUID moduleId, String topicName, String subTopicName) {
+    @Column(nullable = false)
+    private int sequenceNumber;
+
+    public SubTopicEntity() {}
+
+    public SubTopicEntity(UUID subTopicId, ModuleEntity moduleEntity, TopicEntity topicEntity, String subTopicName, int sequenceNumber) {
         this.subTopicId = subTopicId;
-        this.moduleId = moduleId;
-        this.topicName = topicName;
+        this.moduleEntity = moduleEntity;
+        this.topicEntity = topicEntity;
         this.subTopicName = subTopicName;
-    }
-
-    public SubTopicEntity() {
-
-    }
-
-
-    public UUID getModuleId() {
-        return moduleId;
-    }
-
-    public void setModuleId(UUID moduleId) {
-        this.moduleId = moduleId;
-    }
-
-    public String getTopicName() {
-        return topicName;
-    }
-
-    public void setTopicName(String topicName) {
-        this.topicName = topicName;
+        this.sequenceNumber = sequenceNumber;
     }
 
     public UUID getSubTopicId() {
@@ -55,11 +46,35 @@ public class SubTopicEntity {
         this.subTopicId = subTopicId;
     }
 
+    public ModuleEntity getModuleEntity() {
+        return moduleEntity;
+    }
+
+    public void setModuleEntity(ModuleEntity moduleEntity) {
+        this.moduleEntity = moduleEntity;
+    }
+
+    public TopicEntity getTopicEntity() {
+        return topicEntity;
+    }
+
+    public void setTopicEntity(TopicEntity topicEntity) {
+        this.topicEntity = topicEntity;
+    }
+
     public String getSubTopicName() {
         return subTopicName;
     }
 
     public void setSubTopicName(String subTopicName) {
         this.subTopicName = subTopicName;
+    }
+
+    public int getSequenceNumber() {
+        return sequenceNumber;
+    }
+
+    public void setSequenceNumber(int sequenceNumber) {
+        this.sequenceNumber = sequenceNumber;
     }
 }

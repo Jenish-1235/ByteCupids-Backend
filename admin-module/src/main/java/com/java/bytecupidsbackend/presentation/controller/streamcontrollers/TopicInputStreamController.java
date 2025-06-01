@@ -28,7 +28,9 @@ public class TopicInputStreamController {
     public Flux<String> streamTopicGenerator(@RequestBody TopicInputRequest request) {
 
         String accessToken = request.getAccessToken();
-
+//       ______________________________________________
+//        TODO : Perform access token validation here
+//        _____________________________________________
         String prompt = new Gson().toJson(request.getModuleInfo());
         System.out.println(prompt);
         String topicList = manager.getResponse(prompt, agentKey);
