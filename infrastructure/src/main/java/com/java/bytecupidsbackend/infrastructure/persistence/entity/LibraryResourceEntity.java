@@ -19,15 +19,17 @@ public class LibraryResourceEntity {
     private String resourceName;
     private String resourceType;
     private String resourceUri;
+    private Boolean isDeleted;
 
     public LibraryResourceEntity() {}
 
-    public LibraryResourceEntity(UUID resourceId, UUID moduleId, String resourceName, String resourceType, String resourceUri) {
+    public LibraryResourceEntity(UUID resourceId, UUID moduleId, String resourceName, String resourceType, String resourceUri,Boolean isDeleted) {
         this.resourceId = resourceId;
         this.moduleId = moduleId;
         this.resourceName = resourceName;
         this.resourceType = resourceType;
         this.resourceUri = resourceUri;
+        this.isDeleted = isDeleted;
     }
 
     public UUID getResourceId() {

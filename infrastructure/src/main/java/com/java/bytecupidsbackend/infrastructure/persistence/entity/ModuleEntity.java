@@ -51,9 +51,12 @@ public class ModuleEntity {
 
     private Timestamp lastUpdateTime;
 
+    @Column(nullable = false, columnDefinition = "boolean default false")
+    private Boolean isDeleted;
+
     public ModuleEntity() {}
 
-    public ModuleEntity(UUID moduleId, String moduleName, int noOfTopics, int noOfSubTopics, List<String> prerequisites, String targetAudience, int estimatedTime, String interpretation, String agentNotes, String difficultyLevel, Timestamp lastUpdateTime) {
+    public ModuleEntity(UUID moduleId, String moduleName, int noOfTopics, int noOfSubTopics, List<String> prerequisites, String targetAudience, int estimatedTime, String interpretation, String agentNotes, String difficultyLevel, Timestamp lastUpdateTime,Boolean isDeleted) {
         this.moduleId = moduleId;
         this.moduleName = moduleName;
         this.noOfTopics = noOfTopics;
@@ -65,6 +68,15 @@ public class ModuleEntity {
         this.agentNotes = agentNotes;
         this.difficultyLevel = difficultyLevel;
         this.lastUpdateTime = lastUpdateTime;
+        this.isDeleted = isDeleted;
+    }
+
+    public Boolean getDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
     }
 
     public UUID getModuleId() {

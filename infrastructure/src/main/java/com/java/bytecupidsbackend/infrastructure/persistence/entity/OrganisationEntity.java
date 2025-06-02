@@ -21,11 +21,15 @@ public class OrganisationEntity {
     @Column(nullable = false)
     private String organisationPassword;
 
-    public OrganisationEntity(UUID organisationId, String organisationName, String organisationEmail, String organisationPassword) {
+    @Column(nullable = false, columnDefinition = "boolean default false")
+    private Boolean isDeleted;
+
+    public OrganisationEntity(UUID organisationId, String organisationName, String organisationEmail, String organisationPassword,Boolean isDeleted) {
         this.organisationId = organisationId;
         this.organisationName = organisationName;
         this.organisationEmail = organisationEmail;
         this.organisationPassword = organisationPassword;
+        this.isDeleted = isDeleted;
     }
     public OrganisationEntity() {}
 
@@ -55,6 +59,14 @@ public class OrganisationEntity {
 
     public String getOrganisationPassword() {
         return organisationPassword;
+    }
+
+    public Boolean getDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
     }
 
     public void setOrganisationPassword(String organisationPassword) {

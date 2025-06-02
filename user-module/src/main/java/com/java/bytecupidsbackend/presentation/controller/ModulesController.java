@@ -21,4 +21,6 @@ public class ModulesController {
     public ResponseEntity getModules() {
         return ResponseEntity.ok().body(labModuleUseCase.getModules());
     }
+
+
 }

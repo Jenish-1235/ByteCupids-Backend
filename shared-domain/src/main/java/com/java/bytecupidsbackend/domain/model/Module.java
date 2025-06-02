@@ -18,6 +18,15 @@ public class Module {
     private int noOfTopics;
     private int noOfSubTopics;
     private UUID organization;
+    private Boolean isDeleted;
+
+    public Boolean getDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
+    }
 
     public UUID getOrganization() {
         return organization;
@@ -92,7 +101,7 @@ public class Module {
     }
 
 
-    public Module(UUID moduleId, String moduleName, int noOfTopics, int noOfSubTopics, List<String> prerequisites, String targetAudience, int estimatedTime, String interpretation, String agentNotes, String difficultyLevel, Timestamp lastUpdateTime,UUID organization) {
+    public Module(UUID moduleId, String moduleName, int noOfTopics, int noOfSubTopics, List<String> prerequisites, String targetAudience, int estimatedTime, String interpretation, String agentNotes, String difficultyLevel, Timestamp lastUpdateTime,UUID organization,Boolean isDeleted) {
         this.moduleId = moduleId;
         this.moduleName = moduleName;
         this.noOfTopics = noOfTopics;
@@ -105,6 +114,7 @@ public class Module {
         this.difficultyLevel = difficultyLevel;
         this.lastUpdateTime = lastUpdateTime;
         this.organization = organization;
+        this.isDeleted = isDeleted;
     }
 
 

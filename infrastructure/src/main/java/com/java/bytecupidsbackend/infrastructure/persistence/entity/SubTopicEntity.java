@@ -28,14 +28,26 @@ public class SubTopicEntity {
     @Column(nullable = false)
     private int sequenceNumber;
 
+    @Column(nullable = false, columnDefinition = "boolean default false")
+    private Boolean isDeleted;
+
     public SubTopicEntity() {}
 
-    public SubTopicEntity(UUID subTopicId, ModuleEntity moduleEntity, TopicEntity topicEntity, String subTopicName, int sequenceNumber) {
+    public SubTopicEntity(UUID subTopicId, ModuleEntity moduleEntity, TopicEntity topicEntity, String subTopicName, int sequenceNumber,Boolean isDeleted) {
         this.subTopicId = subTopicId;
         this.moduleEntity = moduleEntity;
         this.topicEntity = topicEntity;
         this.subTopicName = subTopicName;
         this.sequenceNumber = sequenceNumber;
+        this.isDeleted = isDeleted;
+    }
+
+    public Boolean getDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
     }
 
     public UUID getSubTopicId() {

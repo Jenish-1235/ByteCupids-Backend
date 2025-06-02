@@ -21,12 +21,24 @@ public class TopicEntity {
     @Column(nullable = false)
     private String topicName;
 
+    @Column(nullable = false, columnDefinition = "boolean default false")
+    private Boolean isDeleted;
+
     public TopicEntity() {}
 
-    public TopicEntity(UUID topicId, ModuleEntity moduleEntity, String topicName) {
+    public TopicEntity(UUID topicId, ModuleEntity moduleEntity, String topicName, Boolean isDeleted) {
         this.topicId = topicId;
         this.moduleEntity = moduleEntity;
         this.topicName = topicName;
+        this.isDeleted = isDeleted;
+    }
+
+    public Boolean getDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
     }
 
     public UUID getTopicId() {

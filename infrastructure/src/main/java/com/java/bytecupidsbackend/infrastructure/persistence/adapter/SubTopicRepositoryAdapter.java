@@ -27,7 +27,8 @@ public class SubTopicRepositoryAdapter implements SubTopicRepository {
                     subTopicEntity.getModuleEntity().getModuleId(),
                     subTopicEntity.getTopicEntity().getTopicId(),
                     subTopicEntity.getSubTopicName(),
-                    subTopicEntity.getSequenceNumber()
+                    subTopicEntity.getSequenceNumber(),
+                    subTopicEntity.getDeleted()
             ));
         }
         return subtopics;

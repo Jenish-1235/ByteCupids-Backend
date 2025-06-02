@@ -8,13 +8,23 @@ public class SubTopic {
     private UUID topicId;
     private String subTopicName;
     private int sequenceNumber;
+    private Boolean isDeleted;
 
-    public SubTopic(UUID subTopicId, UUID moduleId, UUID topicId, String subTopicName, int sequenceNumber) {
+    public SubTopic(UUID subTopicId, UUID moduleId, UUID topicId, String subTopicName, int sequenceNumber,Boolean isDeleted) {
         this.subTopicId = subTopicId;
         this.moduleId = moduleId;
         this.topicId = topicId;
         this.subTopicName = subTopicName;
         this.sequenceNumber = sequenceNumber;
+        this.isDeleted = isDeleted;
+    }
+
+    public Boolean getDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
     }
 
     public SubTopic() {}

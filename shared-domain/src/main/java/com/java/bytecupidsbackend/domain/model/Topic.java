@@ -5,16 +5,25 @@ public class Topic {
     private UUID topicId;
     private String topicName;
     private UUID moduleId;
+    private Boolean isDeleted;
 
 
-    public Topic(UUID topicId, String topicName, UUID moduleId) {
+    public Topic(UUID topicId, String topicName, UUID moduleId,Boolean isDeleted) {
         this.topicId = topicId;
         this.topicName = topicName;
         this.moduleId = moduleId;
+        this.isDeleted = isDeleted;
     }
 
     public Topic() {}
 
+    public Boolean getDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
+    }
 
     public UUID getTopicId() {
         return topicId;

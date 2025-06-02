@@ -25,7 +25,8 @@ public class TopicRepositoryAdapter implements TopicRepository {
             topics.add(new Topic(
                     topicEntity.getTopicId(),
                     topicEntity.getTopicName(),
-                    topicEntity.getModuleEntity().getModuleId()
+                    topicEntity.getModuleEntity().getModuleId(),
+                    topicEntity.getDeleted()
             ));
         }
         return topics;
