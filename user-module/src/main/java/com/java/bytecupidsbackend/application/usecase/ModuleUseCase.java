@@ -23,14 +23,11 @@ public class ModuleUseCase {
             response.setMessage("Found " + moduleList.size() + " modules");
             response.setSuccess(true);
             response.setCode(200);
-            response.setStatus("Success");
         }
         else{
             response.setMessage("Modules not loaded");
             response.setSuccess(false);
             response.setCode(404);
-            response.setStatus("Error");
-            response.setError("No modules found");
         }
         return response;
     }

@@ -8,11 +8,10 @@ public class LoginResponse {
     private String refreshToken;
     private User user;
     private String message;
-    private String status;
-    private String error;
     private Boolean success;
     private Integer code;
     private String timestamp;
+
     public LoginResponse(String token) {
         this.accessToken = token;
     }
@@ -51,21 +50,6 @@ public class LoginResponse {
         this.message = message;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
-    }
 
     public Boolean getSuccess() {
         return success;

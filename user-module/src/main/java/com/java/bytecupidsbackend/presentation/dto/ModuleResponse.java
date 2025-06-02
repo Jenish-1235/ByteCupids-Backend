@@ -6,8 +6,6 @@ import com.java.bytecupidsbackend.domain.model.Module;
 public class ModuleResponse {
     List<Module> modules;
     private String message;
-    private String status;
-    private String error;
     private Boolean success;
     private Integer code;
     private String timestamp;
@@ -24,22 +22,6 @@ public class ModuleResponse {
 
     public void setMessage(String message) {
         this.message = message;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
     }
 
     public Boolean getSuccess() {

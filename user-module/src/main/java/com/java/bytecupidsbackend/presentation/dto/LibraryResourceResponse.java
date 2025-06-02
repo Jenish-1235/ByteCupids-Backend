@@ -7,19 +7,15 @@ import java.util.List;
 public class LibraryResourceResponse {
     private List<LibraryResource> resources;
     private String message;
-    private String status;
-    private String error;
     private String timestamp;
     private Integer code;
     private Boolean success;
 
     public LibraryResourceResponse() {}
 
-    public LibraryResourceResponse(List<LibraryResource> resources, String message, String status, String error, String timestamp, Integer code, Boolean success) {
+    public LibraryResourceResponse(List<LibraryResource> resources, String message, String timestamp, Integer code, Boolean success) {
         this.resources = resources;
         this.message = message;
-        this.status = status;
-        this.error = error;
         this.timestamp = timestamp;
         this.code = code;
         this.success = success;
@@ -39,22 +35,6 @@ public class LibraryResourceResponse {
 
     public void setMessage(String message) {
         this.message = message;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
     }
 
     public String getTimestamp() {

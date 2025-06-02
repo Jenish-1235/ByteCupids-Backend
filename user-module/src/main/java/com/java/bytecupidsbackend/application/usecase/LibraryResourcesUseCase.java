@@ -24,12 +24,10 @@ public class LibraryResourcesUseCase {
             response.setMessage("Found " + resources.size() + " resources");
             response.setSuccess(true);
             response.setCode(200);
-            response.setStatus("SUCCESS");
         }else {
             response.setMessage("No resources found");
             response.setSuccess(false);
             response.setCode(404);
-            response.setStatus("ERROR");
         }
 
 

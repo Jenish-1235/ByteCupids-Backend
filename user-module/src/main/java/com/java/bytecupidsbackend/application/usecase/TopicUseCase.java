@@ -23,12 +23,10 @@ public class TopicUseCase {
             response.setMessage("Found " + topics.size() + " topics");
             response.setSuccess(true);
             response.setCode(200);
-            response.setStatus("SUCCESS");
         }else{
             response.setMessage("No topics found");
             response.setSuccess(false);
             response.setCode(404);
-            response.setStatus("ERROR");
         }
         return response;
     }

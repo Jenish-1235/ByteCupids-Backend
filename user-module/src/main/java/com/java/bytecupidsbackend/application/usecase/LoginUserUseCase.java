@@ -26,19 +26,15 @@ public class LoginUserUseCase {
 
         if (userRepository.findByEmail(email).isEmpty()) {
             loginResponse.setMessage("User not found");
-            loginResponse.setStatus("error");
             loginResponse.setCode(400);
             loginResponse.setSuccess(false);
             loginResponse.setUser(null);
-            loginResponse.setError("Email not registered");
             return loginResponse;
         }
 
         User user = userRepository.findByEmail(email).get();
 
         if (!passwordEncoder.matches(password, user.getPassword())) {
-            loginResponse.setError("Wrong password");
-            loginResponse.setStatus("error");
             loginResponse.setCode(400);
             loginResponse.setSuccess(false);
             loginResponse.setUser(null);
@@ -50,7 +46,6 @@ public class LoginUserUseCase {
         String refreshToken = jwtProvider.generateRefreshToken(user);
         loginResponse.setAccessToken(accessToken);
         loginResponse.setRefreshToken(refreshToken);
-        loginResponse.setStatus("success");
         loginResponse.setSuccess(true);
         user.setPassword("");
         loginResponse.setUser(user);

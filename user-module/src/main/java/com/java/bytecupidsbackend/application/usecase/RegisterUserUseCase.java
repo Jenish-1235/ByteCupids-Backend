@@ -24,7 +24,6 @@ public class RegisterUserUseCase {
             User user = userRepository.findByEmail(email).get();
             user.setPassword("");
             registerResponse.setMessage("Email already registered");
-            registerResponse.setStatus("error");
             registerResponse.setCode(400);
             registerResponse.setUser(user);
             registerResponse.setSuccess(false);
@@ -36,7 +35,6 @@ public class RegisterUserUseCase {
         userRepository.save(user);
         user = userRepository.findByEmail(email).get();
         registerResponse.setMessage("Success");
-        registerResponse.setStatus("OK");
         registerResponse.setCode(200);
         user.setPassword("");
         registerResponse.setUser(user);
