@@ -9,6 +9,6 @@ import java.util.List;
 import java.util.UUID;
 
 
-public interface JpaLibraryResourceRepository extends JpaRepository<LibraryResourceEntity, Long> {
+public interface JpaLibraryResourceRepository extends JpaRepository<LibraryResourceEntity, UUID> {
     List<LibraryResourceEntity> findAllByModuleId(UUID moduleId);
 }

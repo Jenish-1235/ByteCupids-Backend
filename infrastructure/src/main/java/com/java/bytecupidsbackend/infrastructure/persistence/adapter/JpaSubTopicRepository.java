@@ -7,6 +7,6 @@ import java.util.List;
 import java.util.UUID;
 
 
-public interface JpaSubTopicRepository extends JpaRepository<SubTopicEntity, Long> {
+public interface JpaSubTopicRepository extends JpaRepository<SubTopicEntity, UUID> {
     List<SubTopicEntity> findAllByModuleEntity_ModuleId(UUID moduleEntityModuleId);
 }
