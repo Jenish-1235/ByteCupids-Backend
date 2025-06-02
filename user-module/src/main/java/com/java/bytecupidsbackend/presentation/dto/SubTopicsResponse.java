@@ -4,17 +4,17 @@ import com.java.bytecupidsbackend.domain.model.SubTopic;
 
 import java.util.List;
 
-public class TopicsResponse {
-    private List<SubTopic> topics;
+public class SubTopicsResponse {
+    private List<SubTopic> subtopics;
     private String message;
     private String timestamp;
     private Integer code;
     private Boolean success;
 
-    public TopicsResponse() {}
+    public SubTopicsResponse() {}
 
-    public TopicsResponse(List<SubTopic> topics, String message, String timestamp, Integer code, Boolean success) {
-        this.topics = topics;
+    public SubTopicsResponse(List<SubTopic> subtopics, String message, String timestamp, Integer code, Boolean success) {
+        this.subtopics = subtopics;
         this.message = message;
 
         this.timestamp = timestamp;
@@ -22,12 +22,12 @@ public class TopicsResponse {
         this.success = success;
     }
 
-    public List<SubTopic> getTopics() {
-        return topics;
+    public List<SubTopic> getSubTopics() {
+        return subtopics;
     }
 
-    public void setTopics(List<SubTopic> topics) {
-        this.topics = topics;
+    public void setSubTopics(List<SubTopic> subtopics) {
+        this.subtopics = subtopics;
     }
 
     public String getMessage() {

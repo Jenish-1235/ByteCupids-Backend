@@ -4,6 +4,6 @@ import com.java.bytecupidsbackend.domain.model.SubTopic;
 
 import java.util.List;
 
-public interface TopicRepository {
-    List<SubTopic> getAllTopics(String moduleId);
+public interface SubTopicRepository {
+    List<SubTopic> getAllSubTopics(String moduleId);
 }
