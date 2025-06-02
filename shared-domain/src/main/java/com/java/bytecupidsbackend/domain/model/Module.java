@@ -14,7 +14,6 @@ public class Module {
     private String difficultyLevel;
     private Timestamp lastUpdateTime;
     private UUID moduleId;
-    private String name;
     private int noOfTopics;
     private int noOfSubTopics;
     private UUID organization;
@@ -124,14 +123,6 @@ public class Module {
 
     public void setModuleId(UUID moduleId) {
         this.moduleId = moduleId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getNoOfTopics() {
