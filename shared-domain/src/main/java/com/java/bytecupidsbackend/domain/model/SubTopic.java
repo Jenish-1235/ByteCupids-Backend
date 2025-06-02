@@ -3,10 +3,10 @@ package com.java.bytecupidsbackend.domain.model;
 import java.util.UUID;
 
 public class SubTopic {
-    private UUID subTopicId;
-    private UUID moduleId;
-    private String topicName;
-    private String subTopicName;
+        private UUID subTopicId;
+        private UUID moduleId;
+        private String topicName;
+        private String subTopicName;
 
     public SubTopic(UUID subTopicId, UUID moduleId, String topicName, String subTopicName) {
         this.subTopicId = subTopicId;
