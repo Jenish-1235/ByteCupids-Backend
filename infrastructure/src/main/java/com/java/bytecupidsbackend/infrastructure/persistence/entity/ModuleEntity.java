@@ -56,12 +56,13 @@ public class ModuleEntity {
 
     public ModuleEntity() {}
 
-    public ModuleEntity(UUID moduleId, String moduleName, int noOfTopics, int noOfSubTopics, List<String> prerequisites, String targetAudience, int estimatedTime, String interpretation, String agentNotes, String difficultyLevel, Timestamp lastUpdateTime,Boolean isDeleted) {
+    public ModuleEntity(UUID moduleId, String moduleName, int noOfTopics, int noOfSubTopics, List<String> prerequisites, String targetAudience, int estimatedTime, String interpretation, String agentNotes, String difficultyLevel, Timestamp lastUpdateTime,Boolean isDeleted,OrganisationEntity organization) {
         this.moduleId = moduleId;
         this.moduleName = moduleName;
         this.noOfTopics = noOfTopics;
         this.noOfSubTopics = noOfSubTopics;
         this.prerequisites = prerequisites;
+        this.organization = organization;
         this.targetAudience = targetAudience;
         this.estimatedTime = estimatedTime;
         this.interpretation = interpretation;

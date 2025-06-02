@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface ModuleRepository {
     List<Module> getAllModules();
+
+    void saveModule(Module module);
 }

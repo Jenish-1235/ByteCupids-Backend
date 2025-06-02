@@ -1,10 +1,10 @@
-package com.java.bytecupidsbackend.domain.model;
+package com.java.bytecupidsbackend.presentation.dto;
 
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.UUID;
 
-public class Module {
+public class ModuleSaveRequest {
     private String moduleName;
     private List<String> prerequisites;
     private String targetAudience;
@@ -13,27 +13,12 @@ public class Module {
     private String agentNotes;
     private String difficultyLevel;
     private Timestamp lastUpdateTime;
-    private UUID moduleId;
+    private String moduleId;
     private int noOfTopics;
     private int noOfSubTopics;
-    private String organization;
+    private String organisation;
     private Boolean isDeleted;
-
-    public Boolean getDeleted() {
-        return isDeleted;
-    }
-
-    public void setDeleted(Boolean deleted) {
-        isDeleted = deleted;
-    }
-
-    public String getOrganization() {
-        return organization;
-    }
-
-    public void setOrganization(String organization) {
-        this.organization = organization;
-    }
+    private String accessToken;
 
     public String getModuleName() {
         return moduleName;
@@ -99,29 +84,11 @@ public class Module {
         this.lastUpdateTime = lastUpdateTime;
     }
 
-
-    public Module(UUID moduleId, String moduleName, int noOfTopics, int noOfSubTopics, List<String> prerequisites, String targetAudience, int estimatedTime, String interpretation, String agentNotes, String difficultyLevel, Timestamp lastUpdateTime,String organization,Boolean isDeleted) {
-        this.moduleId = moduleId;
-        this.moduleName = moduleName;
-        this.noOfTopics = noOfTopics;
-        this.noOfSubTopics = noOfSubTopics;
-        this.prerequisites = prerequisites;
-        this.targetAudience = targetAudience;
-        this.estimatedTime = estimatedTime;
-        this.interpretation = interpretation;
-        this.agentNotes = agentNotes;
-        this.difficultyLevel = difficultyLevel;
-        this.lastUpdateTime = lastUpdateTime;
-        this.organization = organization;
-        this.isDeleted = isDeleted;
-    }
-
-
-    public UUID getModuleId() {
+    public String getModuleId() {
         return moduleId;
     }
 
-    public void setModuleId(UUID moduleId) {
+    public void setModuleId(String moduleId) {
         this.moduleId = moduleId;
     }
 
@@ -132,10 +99,53 @@ public class Module {
     public void setNoOfTopics(int noOfTopics) {
         this.noOfTopics = noOfTopics;
     }
+
     public int getNoOfSubTopics() {
         return noOfSubTopics;
     }
+
     public void setNoOfSubTopics(int noOfSubTopics) {
         this.noOfSubTopics = noOfSubTopics;
+    }
+
+    public String getOrganisation() {
+        return organisation;
+    }
+
+    public void setOrganisation(String organisation) {
+        this.organisation = organisation;
+    }
+
+    public Boolean getDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
+
+    }
+    public String getAccessToken() {
+        return accessToken;
+    }
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+
+    public ModuleSaveRequest(String moduleName,String accessToken, List<String> prerequisites, String targetAudience, int estimatedTime, String interpretation, String agentNotes, String difficultyLevel, Timestamp lastUpdateTime, String moduleId, int noOfTopics, int noOfSubTopics, String organization, Boolean isDeleted) {
+        this.moduleName = moduleName;
+        this.prerequisites = prerequisites;
+        this.targetAudience = targetAudience;
+        this.estimatedTime = estimatedTime;
+        this.interpretation = interpretation;
+        this.agentNotes = agentNotes;
+        this.difficultyLevel = difficultyLevel;
+        this.lastUpdateTime = lastUpdateTime;
+        this.moduleId = moduleId;
+        this.noOfTopics = noOfTopics;
+        this.noOfSubTopics = noOfSubTopics;
+        this.organisation = organization;
+        this.isDeleted = isDeleted;
+        this.accessToken = accessToken;
+
     }
 }
