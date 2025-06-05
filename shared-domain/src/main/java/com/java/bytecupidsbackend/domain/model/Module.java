@@ -116,6 +116,11 @@ public class Module {
         this.isDeleted = isDeleted;
     }
 
+    public Module (UUID moduleId){
+        this.moduleId = moduleId;
+
+    }
+
 
     public UUID getModuleId() {
         return moduleId;

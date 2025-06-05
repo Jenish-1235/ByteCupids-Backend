@@ -19,6 +19,10 @@ public class SubTopic {
         this.isDeleted = isDeleted;
     }
 
+
+    public SubTopic() {}
+
+
     public Boolean getDeleted() {
         return isDeleted;
     }
@@ -26,8 +30,6 @@ public class SubTopic {
     public void setDeleted(Boolean deleted) {
         isDeleted = deleted;
     }
-
-    public SubTopic() {}
 
     public UUID getSubTopicId() {
         return subTopicId;

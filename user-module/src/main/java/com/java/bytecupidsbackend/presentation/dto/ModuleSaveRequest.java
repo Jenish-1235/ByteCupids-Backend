@@ -16,7 +16,7 @@ public class ModuleSaveRequest {
     private String moduleId;
     private int noOfTopics;
     private int noOfSubTopics;
-    private String organisation;
+    private String organisationId;
     private Boolean isDeleted;
     private String accessToken;
 
@@ -108,12 +108,12 @@ public class ModuleSaveRequest {
         this.noOfSubTopics = noOfSubTopics;
     }
 
-    public String getOrganisation() {
-        return organisation;
+    public String getOrganisationId() {
+        return organisationId;
     }
 
-    public void setOrganisation(String organisation) {
-        this.organisation = organisation;
+    public void setOrganisationId(String organisationId) {
+        this.organisationId = organisationId;
     }
 
     public Boolean getDeleted() {
@@ -143,7 +143,7 @@ public class ModuleSaveRequest {
         this.moduleId = moduleId;
         this.noOfTopics = noOfTopics;
         this.noOfSubTopics = noOfSubTopics;
-        this.organisation = organization;
+        this.organisationId = organization;
         this.isDeleted = isDeleted;
         this.accessToken = accessToken;
 

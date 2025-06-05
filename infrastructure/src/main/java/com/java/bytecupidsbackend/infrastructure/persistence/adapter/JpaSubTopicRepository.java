@@ -4,9 +4,15 @@ import com.java.bytecupidsbackend.infrastructure.persistence.entity.SubTopicEnti
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 
 public interface JpaSubTopicRepository extends JpaRepository<SubTopicEntity, UUID> {
     List<SubTopicEntity> findAllByModuleEntity_ModuleId(UUID moduleEntityModuleId);
+
+    Optional<SubTopicEntity> findBySubTopicId(UUID topicId);
+
+    SubTopicEntity save(SubTopicEntity subTopic);
+
 }

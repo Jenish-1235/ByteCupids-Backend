@@ -5,6 +5,7 @@ import com.java.bytecupidsbackend.domain.repository.ModuleRepository;
 import com.java.bytecupidsbackend.presentation.dto.ModuleResponse;
 
 import java.util.List;
+import java.util.UUID;
 
 public class ModuleUseCase {
 
@@ -14,7 +15,7 @@ public class ModuleUseCase {
         this.moduleRepository = moduleRepository;
     }
 
-    public ModuleResponse getModules(){
+    public ModuleResponse getModules() {
         ModuleResponse response = new ModuleResponse();
         response.setTimestamp(String.valueOf(System.currentTimeMillis()));
         List<Module> moduleList = moduleRepository.getAllModules();
@@ -23,8 +24,7 @@ public class ModuleUseCase {
             response.setMessage("Found " + moduleList.size() + " modules");
             response.setSuccess(true);
             response.setCode(200);
-        }
-        else{
+        } else {
             response.setMessage("Modules not loaded");
             response.setSuccess(false);
             response.setCode(404);

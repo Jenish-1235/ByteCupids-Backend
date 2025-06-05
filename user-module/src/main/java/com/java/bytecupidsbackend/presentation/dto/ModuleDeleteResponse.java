@@ -1,25 +1,22 @@
 package com.java.bytecupidsbackend.presentation.dto;
 
 import com.java.bytecupidsbackend.domain.model.Module;
+public class ModuleDeleteResponse {
 
-public class ModuleSaveResponse {
     private Module module;
     private String message;
     private Boolean success;
     private Integer code;
     private String timestamp;
 
+    public ModuleDeleteResponse() {}
 
-    public ModuleSaveResponse(Module module, String message, Boolean success, Integer code, String timestamp) {
+    public ModuleDeleteResponse(Module module, String message, Boolean success, Integer code, String timestamp) {
         this.module = module;
         this.message = message;
         this.success = success;
         this.code = code;
         this.timestamp = timestamp;
-    }
-
-    public ModuleSaveResponse() {
-
     }
 
     public Module getModule() {
